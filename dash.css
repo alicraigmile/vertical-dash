@@ -1,0 +1,44 @@
+
+html {
+    background: url('bg.jpg') no-repeat center center fixed; 
+    background-color: gray;
+    background-size: cover;
+}
+body { font-family: 'BBC Reith Sans' }
+body { margin: 0 }
+h1, h2 { font-weight: normal }
+.block { background: rgba(255,255,255,0.95)}
+.block { margin: 0 auto }
+.block { margin-bottom: 1em }
+.block { max-width: 800px }
+.block { padding: 1em }
+.block img { width: 100% }
+.blocks { height: 1em; }
+.menubar { background: black }
+.menubar { color: white }
+.menubar { font-size: 150% }
+.menubar { height: 1em }
+.menubar { margin-bottom: 1em }
+.menubar { padding: 1em }
+.menubar { position: relative }
+.menubar a { text-decoration: none }
+.menubar a, .menubar a:link, .menubar a:visited, .menubar a:active { color: white }
+.menubar a:active, .menubar a:hover { color: red }
+.menubar .left {position: absolute; left: 1em }
+.menubar .right {position: absolute; right: 1em }
+
+.slideDown{
+    animation-name: slideDown;
+    animation-duration: 1s; 
+    animation-timing-function: ease;    
+    visibility: visible !important;                     
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }       
+}
