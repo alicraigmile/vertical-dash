@@ -7,13 +7,15 @@ html {
 body { font-family: 'BBC Reith Sans' }
 body { margin: 0 }
 h1, h2 { font-weight: normal }
-.block { background: rgba(255,255,255,0.95)}
+.block { background: rgba(255,255,255,0.8)}
 .block { margin: 0 auto }
 .block { margin-bottom: 1em }
 .block { max-width: 800px }
 .block { padding: 1em }
 .block img { width: 100% }
-.blocks { height: 1em; }
+.block table { width: 100% }
+.block th, .block td { text-align: left }
+.menubar img { height: 1em; }
 .menubar { background: black }
 .menubar { color: white }
 .menubar { font-size: 150% }
