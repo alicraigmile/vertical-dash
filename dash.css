@@ -13,6 +13,14 @@ h1, h2 { font-weight: normal }
 .block { max-width: 800px }
 .block { padding: 1em }
 .block img { width: 100% }
+.block table { width: 100% }
+.block table tr { background: white }
+.block table th { text-align: left }
+.block table th,
+.block table td { padding: 0 0.5em }
+.block table tr:nth-child(even) {
+    background: rgba(0,0,0,0.05);
+  }
 .blocks { height: 1em; }
 .menubar { background: black }
 .menubar { color: white }
