@@ -6,6 +6,22 @@
     <style>
         html { background: url('jobs.gif') no-repeat center center fixed; background-size: cover }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            url: "http://careers.xgusties.com/2/jobs.json",
+            success: function( result ) {
+                result.jobs.forEach(job => {
+                    if (job.location.match(/glasgow/i) && job.division.match(/d&e/i)) {
+                        jobHtml = $("<div class='block'><h2><a href='" + job.url + "'>" + job.title + "</a></h2><ul><li>" + job.division + "</li><li>" + job.location + "</li></ul></div>");
+                        $( "#content" ).append(jobHtml);
+                    }
+                });
+                footerHtml = $("<div class='block'><p>For more details, search 'Careers' on Gateway.</p></div>");
+                $( "#content" ).append(footerHtml);
+            }
+        });
+    </script>
     <script src="slideDownContent.js"></script>
 </head>
 <body>
@@ -24,36 +40,11 @@
         <div class="block">
             <p>The following roles are accepting applications in Glasgow.</p>
         </div>
-        <div class="block">
-            <h2>DataLab</h2>
-            <ul>
-                <li>Developer in Test (Automation) - Grade 7</li>
-                <li>Data Engineering Lead - Band E</li>
-            </ul>
-        </div>
-        <div class="block">
-            <h2>Platform</h2>
-            <ul>
-                <li>Junior User Experience (UX) Designer - Band C</li>
-                <li>Software Engineer - Multiple positions available - Band C</li>
-            </ul>
-        </div>
-        <div class="block">
-            <h2>Voice</h2>
-            <ul>
-                <li>Senior Product Manager - Band D</li>
-                <li>Business Analyst - Band D</li>
-            </ul>
-        </div>
-        <div class="block">
-            <h2>Education</h2>
-            <ul>
-                <li>Software Engineering Team Lead, Education - Band D</li>
-            </ul>
-        </div>
+        <!--
         <div class="block">
             <p>For more details, search 'Careers' on Gateway.</p>
         </div>
+        -->
     </div>
 </body>
 </html>
