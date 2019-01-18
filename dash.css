@@ -15,6 +15,7 @@ h1, h2 { font-weight: normal }
 .block img { width: 100% }
 .block table { width: 100% }
 .block th, .block td { text-align: left }
+.block td {border-bottom: dotted rgba(0,0,0,0.1) }
 .menubar img { height: 1em; }
 .menubar { background: black }
 .menubar { color: white }
