@@ -5,7 +5,33 @@
     <link rel="stylesheet" href="dash.css">
     <style>
         html { background: url('transport.jpg') no-repeat center center fixed; background-size: cover }
+        #traintimes {width: 100%}
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        busstop = {"stopId":"60904033","stopType":"BUS_STOP","stopName":"Govan, At Festival Park On Pacific Drive","departureDate":"2019-03-07T22:47:23.223Z","clientTimeZoneOffsetInMS":0,"departureTime":"2019-03-07T22:47:23.223Z","departureOrArrival":"DEPARTURE","requestTime":"2019-03-07T22:47:23.224Z"};
+
+        $.ajax({
+            type: 'POST',
+            url: "https://www.travelinescotland.com/lts/departures/Thu%20Mar%2007%202019%2022:47:23%20GMT+0000%20(Greenwich%20Mean%20Time)",
+            data: JSON.stringify(busstop),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function( result ) {
+                alert(result);
+                result.body.stopDepartures.forEach(stopDeparture => {
+                    if (stopDeparture.location.match(/glasgow/i) && stopDeparture.division.match(/d\+e/i)) {
+                        stopDepartureHtml = $("<div class='block'><h2>" + stopDeparture.destination + "</h2><ul><li>Number: " + stopDeparture.serviceNumber + "</li><li>From: Govan, At Festival Park On Pacific Drive</li></ul></div>");
+                        $( "#content" ).append(stopDepartureHtml);
+                    }
+                });
+                $( "#content" ).append(footerHtml);
+            },
+            failure: function(errMsg) {
+                alert(errMsg);
+            }
+        });
+    </script>
     <script src="slideDownContent.js"></script>
 </head>
 <body>
@@ -24,20 +50,21 @@
         </div>
         <div class="block">
             <h2>Trains from Exhibition Centre</h2>
-            <ul>
-                <li>Motherwell - 12:34 (expected 12:38)</li>
-                <li>Partick - 13:01</li>
-                <li>Motherwell - 13:34</li>
-            </ul>
+            <iframe id="traintimes" src="http://traintimes.org.uk/live/exh" width="200" height="300"></iframe> 
+        </div>
+        <!--
+        <div class="block">
+            <h2>Govan, At Festival Park On Pacific Drive</h2>
         </div>
         <div class="block">
-            <h2>Busses from Govan Road</h2>
+            <h2>Govan, Opp Festival Park On Pacific Drive</h2>
             <ul>
                 <li>12A City Centre - 12:34 (expected 12:38)</li>
                 <li>23A QMUH - 13:01</li>
                 <li>401 Largs - 13:34</li>
             </ul>
         </div>
+        -->
     </div>
 </body>
 </html>
