@@ -12,7 +12,7 @@
             url: "http://careers.xgusties.com/2/jobs.json",
             success: function( result ) {
                 result.jobs.forEach(job => {
-                    if (job.location.match(/glasgow/i) && job.division.match(/d&e/i)) {
+                    if (job.location.match(/glasgow/i) && job.division.match(/d\+e/i)) {
                         jobHtml = $("<div class='block'><h2><a href='" + job.url + "'>" + job.title + "</a></h2><ul><li>" + job.division + "</li><li>" + job.location + "</li></ul></div>");
                         $( "#content" ).append(jobHtml);
                     }
